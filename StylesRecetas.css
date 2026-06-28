@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    background-color: #242424;
+    font-family: 'Poppins', sans-serif;
+}
+
+.BtnInicio {
+    color: #ffff;
+    border: 1px solid #ffff;
+    background-color: #22222200;
+    width: 80px;
+    height: 50px;
+    font-size: 1rem;
+    font-size: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.TituloReceta {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    font-size: 2.5rem;
+}
+
+.ContenedorImg {
+    display: flex;
+    justify-content: center;
+}
+
+.ImgReceta {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.SpanReceta {
+    display: flex;
+    justify-content: center;
+    color: #ffae00;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.ListaIngredientes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.ListaProceso {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.TextoProceso {
+    text-align: center;   /* centra el texto en cada renglón */
+    margin-top: 10px;     /* opcional: espacio respecto al <li> */
+    line-height: 1.6;     /* opcional: mejora la legibilidad */
+}

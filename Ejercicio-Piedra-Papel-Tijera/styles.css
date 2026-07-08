@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    background-color: #3d3d3d;
+}
+
+.Titulo {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+}
+
+.SubTitulo {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    font-size: 25px;
+}
+
+.ContainerSpan {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 32px;
+}
+
+.SpanJugada {
+    color: #ffff;
+}
+
+.ContainerBtns {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    gap: 20px;
+}
+
+.Btn {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.ContainerResultados {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.SubPuntaje {
+    color: #ffff;
+}
+
+.spanResultado {
+    color: #ffff;
+}
+
+.FinPartida {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    margin-top: 20px;
+}
+
+.ContenedorBtnReset {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

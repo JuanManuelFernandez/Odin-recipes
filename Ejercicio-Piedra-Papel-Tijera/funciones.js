@@ -1,5 +1,14 @@
 let puntajeComputadora = 0;
 let puntajeHumano = 0;
+let contadorRondas = 0;
+
+
+const containerReset = document.querySelector("#containerReset");
+const btnReiniciar = document.createElement("button");
+
+btnReiniciar.textContent = "Reiniciar";
+
+btnReiniciar.style.color = "red";
 
 function getComputerChoice () {
     const numeroRandom = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
@@ -20,81 +29,80 @@ function getComputerChoice () {
 }
 
 function getHumanChoice () {
-    let eleccionHumano = prompt("movimiento a usar: ").toLowerCase().trim();
+    const btnPiedra = document.querySelector("#piedra");
+    const btnPapel = document.querySelector("#papel");
+    const btnTijera = document.querySelector("#tijera");
 
-    if (eleccionHumano === "piedra") return "Piedra";
-    if (eleccionHumano === "papel") return "Papel";
-    if (eleccionHumano === "tijera") return "Tijera";
+    btnPiedra.addEventListener("click", () => jugarPartida("Piedra"));
+    btnPapel.addEventListener("click", () => jugarPartida("Papel"));
+    btnTijera.addEventListener("click", () => jugarPartida("Tijera"))
 
-    alert("Movimiento inválido, probá de nuevo");
-    return getHumanChoice();
 }
 
 function validarGanador (computadora, humano) {
-    //EMPATE
+     //EMPATE
     if(humano == computadora) {
-        console.log("¡EMPATE!")
     }
     // PIEDRA DE HUMANO VS TIJERA COMPUTADOR
     else if(humano == "Piedra" && computadora == "Tijera"){
-        console.log("La computadora ha elegido TIJERA ¡has ganado!");
         puntajeHumano ++;
     }
     //PIEDRA COMPUTADORA VS TIJERA HUMANO
     else if (computadora == "Piedra" && humano == "Tijera") {
-        console.log("La computadora ha elegido PIEDRA, te ha ganado");
         puntajeComputadora++;
     }
     //PAPEL HUMANO VS PIEDRA COMPUTADORA
     else if(humano == "Papel" && computadora == "Piedra") {
-        console.log("La computadora ha elegido PIEDRA ¡le has ganado!");
         puntajeHumano++;
     }
     //PAPEL COMPUTADORA VS PIEDRA HUMANO
     else if(computadora == "Papel" && humano == "Piedra") {
-        console.log("La computadora ha elegido PAPEL, te ha ganado");
         puntajeComputadora++;
     }
     //TIJERA HUMANO VS PAPEL COMPUTADORA
     else if(humano == "Tijera" && computadora == "Papel") {
-        console.log("La computadora ha elegido PAPEL ¡has ganado!");
         puntajeHumano++;
     }
     //TIJERA COMPUTADORA VS PAPEL HUMANO
     else if(computadora == "Tijera" && humano == "Papel") {
-        console.log("La computadora ha elegido TIJERA, te ha ganado");
         puntajeComputadora++
     }
+}
 
-    if(puntajeHumano > puntajeComputadora) {
-        console.log("Van " + puntajeHumano + " a " + puntajeComputadora  + " ¡Vas ganando!")
-    }
-    else {
-        console.log("Van " + puntajeHumano + " a " + puntajeComputadora  + " La computadora te esta ganando")
+function jugarPartida(eleccionHumano) {
+    const eleccionComputadora = getComputerChoice();
+
+    validarGanador(eleccionHumano, eleccionComputadora);
+
+    document.getElementById("resultado").textContent = "Tú: " + puntajeHumano + " - " + "Computadora: " + puntajeComputadora;
+    contadorRondas++
+    if(contadorRondas == 5) {
+        let mensaje = document.getElementById("fin");
+        if(puntajeComputadora > puntajeHumano){
+            mensaje.textContent = "La computadora ha ganado";
+        }
+        else if(puntajeHumano > puntajeComputadora) {
+            mensaje.textContent = "¡Has ganado!";
+        }
+        else {
+            mensaje.textContent = "Empate";
+        }
+        containerReset.appendChild(btnReiniciar);
+        return;
     }
 }
 
-function jugarPartida() {
-    for(let i = 1; i <= 5; i++) {
-        console.log("Ronda " + i);
+function reiniciarPartida() {
+    puntajeHumano= 0;
+    puntajeComputadora = 0;
+    contadorRondas = 0;
 
-        const eleccionComputadora = getComputerChoice();
-        const eleccionHumanoFinal = getHumanChoice();
+    document.getElementById("resultado").textContent = "";
+    document.getElementById("fin").textContent = "";
 
-        validarGanador(eleccionComputadora, eleccionHumanoFinal);
-    }
-
-    console.log("Resultado final");
-    console.log("Vos: " + puntajeHumano + " - " + "Computadora: " + puntajeComputadora);
-    
-    if(puntajeHumano > puntajeComputadora){ñ
-        console.log("¡Has ganado la partida!");
-    }
-    else {
-        console.log("Has perdido la partida, suerte la proxima vez");
-    }
-
-    return;
+    containerReset.removeChild(btnReiniciar);
 }
 
-jugarPartida();
+btnReiniciar.addEventListener("click", () => reiniciarPartida());
+
+getHumanChoice();

@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/*Inicio input*/
+
+.ContenedorInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.SpanSize {
+    font-size: 18px;
+}
+
+.InputSize {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.BtnGenerar {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #00ff00;
+    cursor: pointer;
+}
+
+.BtnBorrar {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #ffff;
+    background-color: #d44d4d;
+    cursor: pointer;
+}
+/*Fin Input*/
+
+/*Inicio hoja*/
+
+.ContenedorDivs {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+
+.grid-casilla {
+    border: 1px solid #000;
+}
+
+.hovered {
+    background-color: #000;
+}
+
+/*Fin Hoja*/
